@@ -9,5 +9,16 @@
     <h1>딥링크 예제</h1>
     <p>아래 버튼을 클릭하여 앱을 여세요:</p>
     <a href="myapp://open" target="_blank">앱 열기</a>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const message = urlParams.get('message');
+            if (message) {
+                const messageElement = document.createElement('p');
+                messageElement.textContent = `딥링크 메시지: ${message}`;
+                document.body.appendChild(messageElement);
+            }
+        });
+    </script>
 </body>
 </html>
